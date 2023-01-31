@@ -1,5 +1,6 @@
 package org.binus.team2;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -64,7 +65,30 @@ public class Main {
   }
 
   private static void simulateBubbleSortAscending(int[] randomNumbers) {
-    // TODO: implement
+    // clone the array, so we don't modify the original one
+    int[] arr = Arrays.copyOf(randomNumbers, randomNumbers.length);
+    boolean isSwapped = true;
+    int passCount = 1;
+    while (isSwapped) {
+      isSwapped = false;
+      System.out.println("Pass " + passCount);
+      System.out.println(Arrays.toString(arr));
+      for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+          // swap arr[i+1] and arr[i]
+          int temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+          isSwapped = true;
+        }
+        System.out.println(Arrays.toString(arr));
+      }
+      System.out.println();
+      System.out.println("Result of Pass " + passCount);
+      System.out.println(Arrays.toString(arr));
+      System.out.println();
+      passCount++;
+    }
   }
 
   private static void simulateSelectionSortAscending(int[] randomNumbers) {
@@ -72,7 +96,30 @@ public class Main {
   }
 
   private static void simulateBubbleSortDescending(int[] randomNumbers) {
-    // TODO: implement
+    // clone the array, so we don't modify the original one
+    int[] arr = Arrays.copyOf(randomNumbers, randomNumbers.length);
+    boolean isSwapped = true;
+    int passCount = 1;
+    while (isSwapped) {
+      isSwapped = false;
+      System.out.println("Pass " + passCount);
+      System.out.println(Arrays.toString(arr));
+      for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < arr[i + 1]) {
+          // swap arr[i+1] and arr[i]
+          int temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+          isSwapped = true;
+        }
+        System.out.println(Arrays.toString(arr));
+      }
+      System.out.println();
+      System.out.println("Result of Pass " + passCount);
+      System.out.println(Arrays.toString(arr));
+      System.out.println();
+      passCount++;
+    }
   }
 
   private static void simulateSelectionSortDescending(int[] randomNumbers) {
